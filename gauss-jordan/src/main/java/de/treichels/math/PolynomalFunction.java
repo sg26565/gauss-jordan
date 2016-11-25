@@ -1,5 +1,6 @@
 package de.treichels.math;
 
+import java.text.NumberFormat;
 import java.util.Arrays;
 
 /**
@@ -72,5 +73,48 @@ public class PolynomalFunction {
 		result = prime * result + Arrays.hashCode(coefficients);
 		result = prime * result + degree;
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder b = new StringBuilder();
+		final NumberFormat nf = NumberFormat.getInstance();
+		nf.setMinimumFractionDigits(0);
+
+		for (int i = 0; i < coefficients.length; i++) {
+			double c = coefficients[i];
+
+			if (c != 0) {
+				if (b.length() > 0) {
+					if (c < 0) {
+						c = -c;
+						b.append(" - ");
+					} else {
+						b.append(" + ");
+					}
+				}
+
+				if (c != 1) {
+					final String s = nf.format(c);
+					b.append(s);
+				}
+
+				final int p = degree - i;
+				switch (p) {
+				case 0:
+					// no x
+					break;
+
+				case 1:
+					b.append(" x");
+					break;
+
+				default:
+					b.append(" x^").append(p);
+				}
+			}
+		}
+
+		return b.toString();
 	}
 }
