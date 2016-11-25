@@ -12,21 +12,40 @@ public class PolynomalFunction {
 	private final double[] coefficients;
 	private final int degree;
 
+	/**
+	 * Construct a polynomal function from coefficients.
+	 *
+	 * @param coefficients
+	 */
 	public PolynomalFunction(final double[] coefficients) {
 		degree = coefficients.length - 1;
 		this.coefficients = coefficients;
 	}
 
+	/**
+	 * Construct a polynomal function with a given degree.
+	 *
+	 * @param degree
+	 */
 	public PolynomalFunction(final int degree) {
 		this.degree = degree;
 		coefficients = new double[degree + 1];
 	}
 
+	/**
+	 * Construct a polynomal function as a copy of another polynomal function.
+	 *
+	 * @param other
+	 */
 	public PolynomalFunction(final PolynomalFunction other) {
 		degree = other.degree;
 		coefficients = Arrays.copyOf(other.coefficients, other.getCoefficients().length);
 	}
 
+	/**
+	 * Two polynomal functions are equal, id their degree and coefficients
+	 * match.
+	 */
 	@Override
 	public boolean equals(final Object obj) {
 		if (this == obj) {
@@ -42,12 +61,15 @@ public class PolynomalFunction {
 		if (degree != other.degree) {
 			return false;
 		}
-		if (!Arrays.equals(coefficients, other.coefficients)) {
-			return false;
-		}
-		return true;
+		return Arrays.equals(coefficients, other.coefficients);
 	}
 
+	/**
+	 * Calculate the result of the polynomal function for a given x.
+	 *
+	 * @param x
+	 * @return function value
+	 */
 	public double evaluate(final double x) {
 		double result = 0;
 
@@ -58,10 +80,32 @@ public class PolynomalFunction {
 		return result;
 	}
 
+	/**
+	 * <p>
+	 * Get the coefficients of this function.
+	 * </p>
+	 * <p>
+	 * For the function <b>ax^3 + bx^2 + cx + d</b>
+	 * </p>
+	 * 
+	 * <pre>
+	 * coefficients[0] == a; coefficients[1] == b; coefficients[2] == c; coefficients[3] == d;
+	 * </pre>
+	 * 
+	 * @return an array of the coefficents
+	 */
 	public double[] getCoefficients() {
 		return coefficients;
 	}
 
+	/**
+	 * The degree of the function.
+	 * <p>
+	 * E.g. the function <b>ax^3 + bx^2 + cx + d</b> has a degree of 3.
+	 * </p>
+	 * 
+	 * @return the degree
+	 */
 	public int getDegree() {
 		return degree;
 	}
@@ -75,6 +119,9 @@ public class PolynomalFunction {
 		return result;
 	}
 
+	/**
+	 * Return a string representation of this function in a human readable form.
+	 */
 	@Override
 	public String toString() {
 		final StringBuilder b = new StringBuilder();

@@ -119,11 +119,7 @@ public class Matrix {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		final Matrix other = (Matrix) obj;
-		if (!Arrays.deepEquals(data, other.data)) {
-			return false;
-		}
-		return true;
+		return Arrays.deepEquals(data, ((Matrix) obj).data);
 	}
 
 	/**
@@ -174,7 +170,7 @@ public class Matrix {
 
 	/**
 	 * Get all values in a row.
-	 * 
+	 *
 	 * @param row
 	 * @return the row data
 	 */
