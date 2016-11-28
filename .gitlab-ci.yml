@@ -8,23 +8,7 @@ cache:
   paths:
     - /root/.m2/repository/
 
-build:
-  stage: build
-  script:
-    - 'mvn $MAVEN_CLI_OPTS compile'
-
 test:
   stage: test
   script:
-    - 'mvn $MAVEN_CLI_OPTS test'
-
-install:
-  # Use stage test here, so the pages job may later pickup the created site.
-  stage: deploy
-  script:
-    - 'mvn $MAVEN_CLI_OPTS install'
-
-  # Archive up the built documentation site.
-  artifacts:
-    paths:
-    - target/staging
+    - 'mvn $MAVEN_CLI_OPTS verify'
