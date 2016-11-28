@@ -109,6 +109,6 @@ public class PolynomalFunctionTest {
 		final double[] coefficients = new double[] { 0, .8, 0, -3.4, 4 };
 		final PolynomalFunction p = new PolynomalFunction(coefficients);
 
-		assertEquals("0,8 x^3 - 3,4 x + 4", p.toString());
+		assertEquals("0.8 x^3 - 3.4 x + 4", p.toString());
 	}
 }

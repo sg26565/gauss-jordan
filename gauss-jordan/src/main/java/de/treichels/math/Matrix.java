@@ -1,6 +1,7 @@
 package de.treichels.math;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 /**
  * <p>
@@ -334,7 +335,7 @@ public class Matrix {
 					builder.append('|');
 				}
 
-				builder.append(String.format("%6.2f", data[row][column]));
+				builder.append(String.format(Locale.US, "%6.2f", data[row][column]));
 
 				if (column == columns - 1) {
 					builder.append("|\n");

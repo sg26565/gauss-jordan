@@ -2,6 +2,7 @@ package de.treichels.math;
 
 import java.text.NumberFormat;
 import java.util.Arrays;
+import java.util.Locale;
 
 /**
  * A class representing a polynomal function (e.g. ax^3 + bx^2 + cx + d).
@@ -87,11 +88,11 @@ public class PolynomalFunction {
 	 * <p>
 	 * For the function <b>ax^3 + bx^2 + cx + d</b>
 	 * </p>
-	 * 
+	 *
 	 * <pre>
 	 * coefficients[0] == a; coefficients[1] == b; coefficients[2] == c; coefficients[3] == d;
 	 * </pre>
-	 * 
+	 *
 	 * @return an array of the coefficents
 	 */
 	public double[] getCoefficients() {
@@ -103,7 +104,7 @@ public class PolynomalFunction {
 	 * <p>
 	 * E.g. the function <b>ax^3 + bx^2 + cx + d</b> has a degree of 3.
 	 * </p>
-	 * 
+	 *
 	 * @return the degree
 	 */
 	public int getDegree() {
@@ -125,7 +126,7 @@ public class PolynomalFunction {
 	@Override
 	public String toString() {
 		final StringBuilder b = new StringBuilder();
-		final NumberFormat nf = NumberFormat.getInstance();
+		final NumberFormat nf = NumberFormat.getInstance(Locale.US);
 		nf.setMinimumFractionDigits(0);
 
 		for (int i = 0; i < coefficients.length; i++) {
