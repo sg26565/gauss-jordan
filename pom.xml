@@ -43,5 +43,6 @@
 
 	<modules>
 		<module>gauss-jordan</module>
+		<module>javafx-test</module>
 	</modules>
 </project>
