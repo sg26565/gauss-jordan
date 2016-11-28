@@ -10,7 +10,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>de.treichels.math</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>gauss-jordan</artifactId>
 			<version>${project.version}</version>
 		</dependency>
