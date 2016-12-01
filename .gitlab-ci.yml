@@ -8,7 +8,14 @@ cache:
   paths:
     - ~/.m2/repository/
 
+build:
+  stage: build
+  script: 'mvn $MAVEN_CLI_OPTS compile'
+    
 test:
   stage: test
-  script:
-    - 'mvn $MAVEN_CLI_OPTS install'
+  script: 'mvn $MAVEN_CLI_OPTS verify'
+
+deploy:
+  stage: deploy
+  script: 'mvn $MAVEN_CLI_OPTS install'
