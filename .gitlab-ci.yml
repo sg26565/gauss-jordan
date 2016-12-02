@@ -4,10 +4,14 @@ variables:
 
 image: sgmia/maven:latest
 
+before_script:
+  - rm -rf /root/.m2
+  - ln -s /cache/.m2 /root/.m2
+  
 cache:
   paths:
-    - ~/.m2/repository/
-
+  - /root/.m2/
+  
 build:
   stage: build
   script: 'mvn $MAVEN_CLI_OPTS compile'
